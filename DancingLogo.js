@@ -380,7 +380,7 @@ function startup() {
     tick();
 }
 
-function animate() {
+function animate1() {
     frameN = (frameN + 1) % 360;
     rotatez(2);
 
@@ -394,5 +394,5 @@ function tick() {
     requestAnimFrame(tick);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     draw();
-    animate();
+    animate1();
 }
