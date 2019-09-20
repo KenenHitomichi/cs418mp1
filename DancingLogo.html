@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title> Dancing Logo </title>
+	<meta charset="utf-8">
+</head>
+
+<script type="x-shader/x-vertex" id="shader-vs">
+	attribute vec3 aVertexPosition;
+	attribute vec4 aVertexColor;
+
+	uniform mat4 uMVMatrix;
+	uniform mat4 uPMatrix;
+	varying vec4 vColor;
+
+	void main(void) {
+		gl_Position = uPMatrix*uMVMatrix*vec4(aVertexPosition, 1.0);
+		vColor = aVertexColor;
+	}
+</script>
+
+<script type="x-shader/x-fragment" id="shader-fs">
+	precision mediump float;
+	varying vec4 vColor;
+
+	void main(void) {
+		gl_FragColor = vColor;
+	}
+</script>
+
+<script src="gl-matrix-min.js"></script>
+<script type="text/javascript" src="webgl-utils.js"></script>
+<script src="DancingLogo.js"></script>
+
+<style media="screen" type="text/css">
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	html, body {
+		height: 100%;
+	}
+	body {
+	}
+	/* #myGLCanvas {
+		display: block;
+		padding: 0;
+		margin: 0;
+		height: 100%;
+		width: 100%;
+	} */
+	#myGLCanvas {
+		position: absolute;
+		left: 0; right: 0; bottom: 0; top: 0; margin: auto;
+		display: block;
+		border: 20px ridge rgba(75, 75, 75);
+	}
+</style>
+
+<body onload="startup();">
+	<canvas id="myGLCanvas" height="800" width="1000"></canvas>
+</body>
+</html>
