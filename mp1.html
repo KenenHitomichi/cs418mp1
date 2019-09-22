@@ -31,7 +31,10 @@
 
 <script src="gl-matrix-min.js"></script>
 <script type="text/javascript" src="webgl-utils.js"></script>
-<script src="DancingLogo.js"></script>
+<script src="basicClass.js"></script>
+<script type="text/javascript" src="mp1_pictures.js"></script>
+<script type+"text/javascript" src="mp1_animations.js"></script>
+<script src="mp1.js"></script>
 
 <style media="screen" type="text/css">
 	* {
@@ -56,9 +59,27 @@
 		display: block;
 		border: 20px ridge rgba(75, 75, 75);
 	}
+	.back{
+		background: url(siebel-center.jpg) no-repeat;
+		background-size: cover;
+		background-position: right;
+	}
+	.selection {
+		padding: 20px 20px;
+	}
+	.choice {
+	}
 </style>
 
 <body onload="startup();">
-	<canvas id="myGLCanvas" height="800" width="1000"></canvas>
+	<div class="selection">
+		<div id="mp1_animation" class="choice" onclick="change_animation(0);">
+			<input type="radio" name="mp" id="mp1" checked/><label for="mp1"> MP1 Animation</label>
+		</div>
+		<div id="my_own_animation" class="choice" onclick="change_animation(1);">
+			<input type="radio" name="mp" id="my"/><label for="my"> My Own Animation</label>
+		</div>
+	</div>
+	<canvas id="myGLCanvas" height="700" width="700"></canvas>
 </body>
 </html>
